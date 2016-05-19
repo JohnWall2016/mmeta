@@ -23,14 +23,14 @@ public class SyntaxError extends Error {
             }
             int n = s.indexOf('\n');
             if (n > 0) s = s.substring(0, n);
-            msg = msg + " before '"+ s +"'";
+            msg = msg + " at '"+ s +"'";
 
             return ""+ msg +" (at line: "+ nl +", char: "+ (pos - nlpos) +")";
         } else {
             if (msg.length() > 0) msg = "expected "+ msg;
             else msg = "expected "+ expected;
 
-            msg = msg + " before '"+ BaseParser.print_r(list[pos]) +"'";
+            msg = msg + " at '"+ BaseParser.print_r(list[pos]) +"'";
             return ""+ msg +" (at pos: "+ pos +")";
         }
     }
