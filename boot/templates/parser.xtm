@@ -10,6 +10,7 @@ class {{PARSER}} < {{SUPERCLASS}}
   def _error(expected:String)
 #    throws RuleFailure
     @error.last = expected unless ''.equals(expected)
+    @error.pos = _pos
     raise @error
   end
 

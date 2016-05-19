@@ -3,6 +3,7 @@ package mmeta;
 
 public class RuleFailure extends RuntimeException {
     public String last = "";
-    public String toString() { return "ERROR.last: " + last; }
+    public int pos = 0;
+    public String toString() { return "ERROR.last: " + last + " at " + pos; }
 }
 

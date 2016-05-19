@@ -13,7 +13,8 @@ def {{RULE}}{{ARGS}}{{#CAST}}:{{CAST}}{{/CAST}}
     _exit(_e)
     _e{{/DEBUG}}
   rescue RuleFailure => ex
-    ex.last = '{{RULE}}'{{#DEBUG}}
+    ex.last = '{{RULE}}'
+    ex.pos = _pos{{#DEBUG}}
     _exit(ex){{/DEBUG}}
     raise ex{{#SCOPE}}
   ensure{{#SCOPE_VARS}}

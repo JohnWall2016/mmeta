@@ -122,6 +122,7 @@ public class BaseParser {
     public Object _error(String expected) throws RuleFailure {
         RuleFailure failure = new RuleFailure();
         failure.last = expected;
+		failure.pos = _pos;
         throw failure;
     }
 
@@ -326,7 +327,7 @@ public class BaseParser {
     }
 
     public void syntaxError(String message, RuleFailure ex) {
-      throw new SyntaxError(message, ex.last, _pos, _string, _list);
+      throw new SyntaxError(message, ex.last, ex.pos, _string, _list);
     }
 
     public void warn(String message) {
