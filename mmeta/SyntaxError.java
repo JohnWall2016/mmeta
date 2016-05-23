@@ -21,7 +21,8 @@ public class SyntaxError extends Error {
             if (pos >= string.length()) {
               s = "<EOF>";
             }
-            int n = s.indexOf('\n');
+            int n = s.indexOf("\r\n");
+            if (n < 0) n = s.indexOf('\n');
             if (n > 0) s = s.substring(0, n);
             msg = msg + " at '"+ s +"'";
 
